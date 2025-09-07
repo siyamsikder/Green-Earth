@@ -12,12 +12,12 @@
       rel="stylesheet"
       type="text/css" />
   </head>
-  <body>
+  <body class="bg-[#F0FDF4]">
     <header>
       <nav>
         <div class="navbar bg-base-100 shadow-sm bg-[#15803D] px-10">
           <div class="navbar-start">
-            <a class="text-2xl text-white font-bold"></a>
+            <a class="text-2xl text-white font-bold">Green-Earth</a>
           </div>
           <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1 text-white">
@@ -33,25 +33,76 @@
           </div>
         </div>
       </nav>
-      <!-- herro section start hear -->
-      <section class="flex justify-around bg-[#CFF0DC]">
-        <div><img src="assets/hero-leaf1.png" alt="" /></div>
+      <!-- hero section start hear -->
+      <section class="flex justify-around bg-[#CFF0DC] p-5 md:p-1">
+        <div class="hidden md:block">
+          <img src="assets/hero-leaf1.png" alt="" />
+        </div>
         <div class="flex flex-col text-center justify-center">
-          <h1 class="text-4xl font-bold">Plant a Tree, Grow a Future</h1>
-          <p class="text-gray-500 mt-3 mb-6">
+          <h1 class="font-bold text-xl md:text-4xl">
+            Plant a Tree, Grow a Future
+          </h1>
+          <p class="text-gray-500 mt-3 mb-5">
             Join our mission to plant 1 million trees and make the Earth greener
             for future generations.
           </p>
           <button>
             <a class="btn bg-[#FACC15] text-[#15803D] rounded-3xl"
-              >Plant a Tree</agi  >
+              >Plant a Tree</a
+            >
           </button>
         </div>
-        <div><img src="assets/hero-leaf2.png" alt="" /></div>
+        <div class="hidden md:block">
+          <img src="assets/hero-leaf2.png" alt="" />
+        </div>
       </section>
     </header>
-    <main></main>
-    <footer></footer>
-    <script src="script.js"></script>
-  </body>
+    <section class="mt-16">
+      <h2 class="font-bold text-3xl text-center">Choose Your Trees</h2>
+      <div class="flex mt-5 p-5 space-x-6">
+        <!-- Categories -->
+        <div class="w-[18%] h-max bg-white shadow-sm rounded-xl p-6">
+          <h1 class="font-bold text-xl mb-2">Categories</h1>
+          <button id="all-trees" class="btn btn-wide bg-[#15803D]">All Trees</button>
+          <!-- all categories add hear -->
+          <div id="all-categories"></div>
+        </div>
+        <!-- All Plants secriom srart hear        -->
+        <div id="all-plants" class="w-[66%] h-max grid grid-cols-3 gap-4">
+          <!-- Your Cart -->
+          
+        </div>
+        <div
+          class="w-[16%] h-max col-span-3 bg-white shadow-sm rounded-xl p-6 mt-5 sm:mt-0">
+          <div class="">
+            <h1 class="font-bold text-lg">Your Cart</h1>
+          </div>
+        </div>
+    </section>
+    <!-- About the Campaign -->
+     <section class="mt-10 w-11/12 max-w-[1090px] h-auto rounded-2xl shadow-md p-8 mx-auto">
+  <h1 class="text-4xl text-center font-bold mb-8">About the Campaign</h1>
+  <div class="flex flex-col md:flex-row items-center gap-10">
+    <div class="left-sait flex-1">
+      <img class="w-full max-w-sm mx-auto rounded-xl" src="assets/about.png" alt="About Image">
+    </div>
+      <div class="right-sait flex-1 text-center md:text-left">
+      <p class="text-gray-600 leading-relaxed">
+        Green Earth is a global tree plantation initiative dedicated to fighting climate change. 
+        Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, 
+        you help restore forests, create habitats for wildlife, and combat global warming.
+      </p>
+       <ul class="mt-5 text-gray-700 list-disc list-inside space-y-2">
+        <li>Restoration of natural habitats</li>
+        <li>Improvement of air quality</li>
+        <li>Support for local communities</li>
+      </ul>
+    </div>
+  </div>
+</section>
+ <footer>
+
+ </footer>
+   <script src="script.js"></script>
+</body>
 </html>
