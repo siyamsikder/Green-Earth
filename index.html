@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Green-Earth</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- tailwindcss & daisyui cdn -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -70,13 +72,29 @@
         <!-- All Plants secriom srart hear        -->
         <div id="all-plants" class="w-[66%] h-max grid grid-cols-3 gap-4">
           <!-- Your Cart -->
-          
+           
         </div>
         <div
-          class="w-[16%] h-max col-span-3 bg-white shadow-sm rounded-xl p-6 mt-5 sm:mt-0">
+          class="w-[16%] h-max col-span-3 bg-white shadow-sm rounded-xl p-3 mt-5 sm:mt-0">
           <div class="">
             <h1 class="font-bold text-lg">Your Cart</h1>
           </div>
+          <div class="bg-[#F0FDF4] p-2 mt-3 flex items-center justify-between">
+              <!-- all Cart -->
+             <div class="">
+               <h1 class="font-semibold">Mango Tree</h1>
+               <p>৳<span>500 x 1</span></p>
+             </div>
+             <div>
+              <span> <i class="fa-solid fa-xmark"></i></span>
+             </div>
+           </div>
+            <hr class="my-4">
+         <!-- Total -->
+        <div class="flex items-center justify-between font-semibold text-lg">
+         <span>Total:</span>
+         <span>৳1000</span>
+  </div>
         </div>
     </section>
     <!-- About the Campaign -->
@@ -101,7 +119,48 @@
   </div>
 </section>
  <footer>
-
+  <!-- Our Impact section start hear -->
+<section class="bg-[#CFF0DC] mt-10 py-14">
+  <h2 class="font-bold text-3xl text-center mb-10">Our Impact</h2>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6 px-4">
+    <div class="h-[120px] w-full md:w-[300px] bg-white shadow-md rounded-lg flex items-center justify-center flex-col transition-transform transform hover:scale-105 hover:shadow-xl cursor-pointer">
+      <h1 class="text-2xl text-[#166534] font-bold">500K+</h1>
+      <p class="text-gray-500">Trees Planted</p>
+    </div>
+    <div class="h-[120px] w-full md:w-[300px] bg-white shadow-md rounded-lg flex items-center justify-center flex-col transition-transform transform hover:scale-105 hover:shadow-xl cursor-pointer">
+      <h1 class="text-2xl text-[#166534] font-bold">200+</h1>
+      <p class="text-gray-500">Communities Reached</p>
+    </div>
+    <div class="h-[120px] w-full md:w-[300px] bg-white shadow-md rounded-lg flex items-center justify-center flex-col transition-transform transform hover:scale-105 hover:shadow-xl cursor-pointer">
+      <h1 class="text-2xl text-[#166534] font-bold">50+</h1>
+      <p class="text-gray-500">Partners Worldwide</p>
+    </div>
+  </div>
+</section>
+ <!-- Plant a Tree Today -->
+<section class="bg-[#166534] py-20 flex flex-col items-center">
+  <h2 class="text-4xl text-center text-white font-bold mb-10">
+    Plant a Tree Today
+  </h2>
+   <form class="bg-[#15803D] flex flex-col items-center justify-center w-11/12 md:w-[530px] rounded-lg p-10 gap-5">
+    <input type="text" placeholder="Your Name" class="input input-bordered w-full p-3" />
+    <input type="email" placeholder="Your Email Address" class="input input-bordered w-full p-3" />
+    
+    <input type="text" placeholder="Number of Trees" list="trees" class="input input-bordered w-full p-3"/>
+    <datalist id="trees">
+      <option value="1 (50 tk)" ></option>
+      <option value="2 (100 tk)"></option>
+      <option value="3 (150 tk)"></option>
+      <option value="4 (200 tk)"></option>
+      <option value="5 (250 tk)"></option>
+    </datalist>
+     <button type="submit" class="btn w-full bg-[#FACC15] text-[#15803D] rounded-2xl font-bold">Donate Now
+    </button>
+  </form>
+</section>
+ <section class="bg-[#14532D] p-5">
+  <h class="flex items-center justify-center">© 2025 Green Earth. All Rights Reserved.</h3>
+ </section>
  </footer>
    <script src="script.js"></script>
 </body>
