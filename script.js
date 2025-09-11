@@ -19,7 +19,7 @@ const shoCategorys = (categories) => {
   categories.forEach(cat => {
     // console.log(cat.category_name)
     allCategoriesContaainer.innerHTML += `
-         <button id="${cat.id}" class="btn btn-wide mt-3 border-2 border-gray-50">${cat.category_name}</button></div>
+         <button id="${cat.id}"class="btn w-auto md:w-full mt-3 p-4 md:p-0 border-2 border-gray-50 transition-all duration-300 hover:bg-[#15803D] hover:text-white hover:scale-105 hover:shadow-lg">${cat.category_name}</button></div>
          `
   });
   allCategoriesContaainer.addEventListener('click', (e) => {
@@ -45,17 +45,17 @@ const loadClickByCat = (categoryid) => {
 }
 const shoProductBYCategorysby = (products) => {
   //  console.log(products)
-    allPlantsContainer.innerHTML = "";
+  allPlantsContainer.innerHTML = "";
   products.forEach(p => {
     // console.log(onebyone)
-   allPlantsContainer.innerHTML += `
-              <div class="bg-white shadow-sm rounded-xl p-4">
+    allPlantsContainer.innerHTML += `
+              <div class="bg-white shadow-sm rounded-xl p-4 flex flex-col h-full">
              <img class="rounded-xl h-[190px] w-full" src="${p.image}" alt="" />
             <h1 class="text-xl font-bold mt-2">${p.name}</h1>
-            <p class="text-gray-500 mb-3 mt-1">${p.description}</p>
+            <p class="text-gray-500 mb-3 mt-1 flex-grow">${p.description}</p>
             <div class="flex justify-between mb-5">
               <div>
-                <button class="btn bg-[#DCFCE7] text-[#15803D] rounded-2xl p-5">${p.category}</button>
+                <button onclick="loadPlantDetail(${p.id})" class="btn bg-[#DCFCE7] text-[#15803D] rounded-2xl p-5">${p.category}</button>
                 </div>
               <h2>৳ <span>${p.price}</span></h2>
             </div>
@@ -75,6 +75,34 @@ allTreesButton.addEventListener('click', () => {
 });
 
 
+
+//modul
+const loadPlantDetail = (id) => {
+  fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
+    .then(res => res.json())
+    .then(data => {
+      console.log("API Response:", data);
+      dicplePlantDetail(data.plants); // 👈 এখানে data.plants পাঠাতে হবে
+    });
+};
+
+const dicplePlantDetail = (plant) => {
+  const displyplantContainer = document.getElementById("details-container");
+  displyplantContainer.innerHTML = `
+    <div>
+      <h1 class="text-xl font-bold mt-2 mb-2">${plant.name}</h1>
+      <img class="rounded-xl h-[220px] w-full mb-2" src="${plant.image}" alt="${plant.name}" />    
+    </div>
+    <h2 class="mb-2 mt-4"><span class="font-bold">Category:</span> ${plant.category}</h2>
+    <h2 class="mb-2"><span class="font-bold">Price: ৳</span>${plant.price}</h2>
+    <p class="text-gray-500 mb-3 mt-1">${plant.description}</p>
+  `;
+
+  document.getElementById("my_modal").showModal();
+};
+
+
+
 // All Plants secriom srart hear
 
 const loodplant = () => {
@@ -90,19 +118,24 @@ const shoPlants = (plants) => {
   plants.forEach(dta => {
     // console.log(dta.image)
     allPlantsContainer.innerHTML += `
-              <div class="bg-white shadow-sm rounded-xl p-4">
+              <div class="bg-white shadow-sm rounded-xl p-4 flex flex-col h-full">
              <img class="rounded-xl h-[190px] w-full" src="${dta.image}" alt="" />
             <h1 class="text-xl font-bold mt-2">${dta.name}</h1>
-            <p class="text-gray-500 mb-3 mt-1">${dta.description}</p>
+            <p class="text-gray-500 mb-3 mt-1 flex-grow">${dta.description}</p>
             <div class="flex justify-between mb-5">
               <div>
-                <button class="btn bg-[#DCFCE7] text-[#15803D] rounded-2xl p-5">${dta.category}</button>
+                <button onclick="loadPlantDetail(${dta.id})" class="btn bg-[#DCFCE7] text-[#15803D] rounded-2xl p-5">${dta.category}</button>
                 </div>
-              <h2>৳ <span>${dta.price}</span></h2>
+              <h2>৳<span>${dta.price}</span></h2>
             </div>
-            <div class="w-full"><button class="btn btn-wide bg-[#15803D] text-white">Add to Cart</button></div>
+            <div class="w-full"><button id="cart-btn" class="btn btn-wide bg-[#15803D] text-white">Add to Cart</button></div>
           </div>    
          `
   })
 }
 loodplant()
+
+const cartContainer = document.getElementById("cart-container");
+console.log(cartContainer)
+const cartTotalEl = document.getElementById("cart-total");
+console.log(cartTotalEl)

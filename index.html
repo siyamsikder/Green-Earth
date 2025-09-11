@@ -60,26 +60,27 @@
       </section>
     </header>
     <section class="mt-16">
-      <h2 class="font-bold text-3xl text-center">Choose Your Trees</h2>
-      <div class="flex mt-5 p-5 space-x-6">
+      <h2 class="font-bold text-3xl text-center ">Choose Your Trees</h2>
+      <div class="grid grid-cols-12 mt-5 p-5 gap-3">
         <!-- Categories -->
-        <div class="w-[18%] h-max bg-white shadow-sm rounded-xl p-6">
-          <h1 class="font-bold text-xl mb-2">Categories</h1>
-          <button id="all-trees" class="btn btn-wide bg-[#15803D]">All Trees</button>
+        <div class="w-full col-span-12 md:col-span-2 h-max bg-white shadow-sm rounded-xl p-6">
+          <h1 class="font-bold text-xl mb-2 text-center">Categories</h1>
+          <button id="all-trees" class="btn w-full border-2 border-gray-100 bg-[#15803D] transition-all duration-300 hover:bg-[#15803D] hover:text-white hover:scale-105 hover:shadow-lg">All Trees</button>
           <!-- all categories add hear -->
           <div id="all-categories"></div>
         </div>
         <!-- All Plants secriom srart hear        -->
-        <div id="all-plants" class="w-[66%] h-max grid grid-cols-3 gap-4">
+        <div id="all-plants" class="w-full  col-span-12 md:col-span-8 h-max grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <!-- Your Cart -->
            
         </div>
-        <div
-          class="w-[16%] h-max col-span-3 bg-white shadow-sm rounded-xl p-3 mt-5 sm:mt-0">
+        <div class="w-full col-span-12 md:col-span-2  h-max bg-white shadow-sm rounded-xl p-3 mt-5">
           <div class="">
             <h1 class="font-bold text-lg">Your Cart</h1>
           </div>
+
           <div class="bg-[#F0FDF4] p-2 mt-3 flex items-center justify-between">
+
               <!-- all Cart -->
              <div class="">
                <h1 class="font-semibold">Mango Tree</h1>
@@ -89,14 +90,35 @@
               <span> <i class="fa-solid fa-xmark"></i></span>
              </div>
            </div>
+           <!-- all cart items will show here -->
+          <div id="cart-container" class="mt-3 space-y-2">
+            
+          </div>
             <hr class="my-4">
          <!-- Total -->
-        <div class="flex items-center justify-between font-semibold text-lg">
-         <span>Total:</span>
-         <span>৳1000</span>
-  </div>
+             <div class="flex items-center justify-between font-semibold text-lg">
+             <span>Total:</span>
+            <span>৳<span id="cart-total">0</span></span>
+         </div>
         </div>
     </section>
+
+    <!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+
+<dialog id="my_modal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <div id="details-container">
+    </div>
+    <!-- <p class="py-4">Press ESC key or click the button below to close</p> -->
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
     <!-- About the Campaign -->
      <section class="mt-10 w-11/12 max-w-[1090px] h-auto rounded-2xl shadow-md p-8 mx-auto">
   <h1 class="text-4xl text-center font-bold mb-8">About the Campaign</h1>
