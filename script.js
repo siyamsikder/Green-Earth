@@ -4,6 +4,7 @@ const allPlantsContainer = document.getElementById("all-plants")
 // console.log(allPlantsContainer)
 const allTreesButton = document.getElementById("all-trees");
 
+
 // categories secrion start
 const loodcatagoris = () => {
   const url = fetch("https://openapi.programming-hero.com/api/categories")
@@ -31,6 +32,7 @@ const shoCategorys = (categories) => {
       // console.log(e.target)
       e.target.classList.add('bg-[#15803D]')
       loadClickByCat(e.target.id)
+      showLoding()
     }
   })
 }
@@ -42,6 +44,13 @@ const loadClickByCat = (categoryid) => {
       // console.log(data.plants)
       shoProductBYCategorysby(data.plants)
     })
+}
+const showLoding = () => {
+  allPlantsContainer.innerHTML = `
+                 <div class="px-20">
+                 <span class="font-bold">Loding <span class="loading loading-dots loading-xl"></span><span>
+           </div>
+  `
 }
 const shoProductBYCategorysby = (products) => {
   //  console.log(products)
@@ -59,7 +68,7 @@ const shoProductBYCategorysby = (products) => {
                 </div>
               <h2>৳ <span>${p.price}</span></h2>
             </div>
-            <div class="w-full"><button class="btn btn-wide bg-[#15803D] text-white">Add to Cart</button></div>
+            <div class="w-full"><button class="btn w-full bg-[#15803D] text-white">Add to Cart</button></div>
           </div>    
          `
   })
@@ -68,21 +77,21 @@ loadClickByCat()
 loodcatagoris()
 
 allTreesButton.addEventListener('click', () => {
+  showLoding()
   const allButtons = allCategoriesContaainer.querySelectorAll('button');
   allButtons.forEach(btn => btn.classList.remove('bg-[#15803D]'));
   allTreesButton.classList.add('bg-[#15803D]');
-  loodplant();
 });
 
 
 
-//modul
+//Show modal
 const loadPlantDetail = (id) => {
   fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
     .then(res => res.json())
     .then(data => {
-      console.log("API Response:", data);
-      dicplePlantDetail(data.plants); // 👈 এখানে data.plants পাঠাতে হবে
+      // console.log(data);
+      dicplePlantDetail(data.plants);
     });
 };
 
@@ -97,9 +106,11 @@ const dicplePlantDetail = (plant) => {
     <h2 class="mb-2"><span class="font-bold">Price: ৳</span>${plant.price}</h2>
     <p class="text-gray-500 mb-3 mt-1">${plant.description}</p>
   `;
-
   document.getElementById("my_modal").showModal();
 };
+
+// Your Cart
+
 
 
 
@@ -128,14 +139,10 @@ const shoPlants = (plants) => {
                 </div>
               <h2>৳<span>${dta.price}</span></h2>
             </div>
-            <div class="w-full"><button id="cart-btn" class="btn btn-wide bg-[#15803D] text-white">Add to Cart</button></div>
+            <div class="w-full"><button id="cart-btn" class="btn w-full bg-[#15803D] text-white">Add to Cart</button></div>
           </div>    
          `
   })
 }
 loodplant()
 
-const cartContainer = document.getElementById("cart-container");
-console.log(cartContainer)
-const cartTotalEl = document.getElementById("cart-total");
-console.log(cartTotalEl)
